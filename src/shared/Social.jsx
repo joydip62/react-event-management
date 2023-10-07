@@ -1,19 +1,20 @@
 
-import { useContext } from "react";
 import google from "./../../public/google.png";
-import { AuthContext } from "../provider/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import useAuth from "../hooks/useAuth";
 const Social = () => {
 
   const navigate = useNavigate();
 
-  const { googleLogin } = useContext(AuthContext);
+  const { googleLogin } = useAuth();
 
   const handleGoogleSignIn = (media) => {
     // eslint-disable-next-line no-unused-vars
-    media().then(result => {
+    media()
+      .then(result => {
       toast.success('You have successfully sign in with google');
+      console.log(result.user);
       navigate('/');
     }).catch(error => {
       return toast.error(error.message);

@@ -1,6 +1,9 @@
 import { NavLink } from "react-router-dom";
 import logo from "./../../../public/images/logo.png";
+import useAuth from "../../hooks/useAuth";
 const Navbar = () => {
+  const { user, logout } = useAuth();
+
   const links = (
     <>
       <li>
@@ -56,30 +59,30 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end">
-          <button className="btn bg-[#F9A51A]">
-            <NavLink to="./login">Login</NavLink>
-          </button>
-          <div className="dropdown dropdown-end">
-            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full">
-                <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-              </div>
-            </label>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-            >
-              <li>
-                <a className="justify-between">
-                  Profile
-                  <span className="badge">New</span>
-                </a>
-              </li>
-              <li>
-                <a>Logout</a>
-              </li>
-            </ul>
-          </div>
+          {user?.email ? (
+            <div className="dropdown dropdown-end">
+              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                <div className="w-10 rounded-full">
+                  <img src={user?.photoURL} />
+                </div>
+              </label>
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              >
+                <li>
+                  <a className="justify-between">{user?.displayName}</a>
+                </li>
+                <li>
+                  <a onClick={logout}>Logout</a>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            <button className="btn bg-[#F9A51A]">
+              <NavLink to="./login">Login</NavLink>
+            </button>
+          )}
         </div>
       </div>
     </div>

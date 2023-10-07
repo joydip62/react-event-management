@@ -1,12 +1,28 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Social from "../../shared/Social";
+import useAuth from "../../hooks/useAuth";
+import toast from "react-hot-toast";
 
 const Login = () => {
+
+  const { userLogIn } = useAuth();
+  const location = useLocation();
+
+  const navigate = useNavigate();
     const handleLogin = (e) => {
       e.preventDefault();
       const email = e.target.email.value;
       const password = e.target.password.value;
 
+      userLogIn(email, password)
+        .then((result) => {
+          toast.success("You have successfully sign in with google");
+          console.log(result.user);
+          navigate(location?.state ? location.pathname : "/");
+        })
+        .catch((error) => {
+          return toast.error(error.message);
+        });
     };
 
     return (
