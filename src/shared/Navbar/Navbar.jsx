@@ -4,6 +4,7 @@ import useAuth from "../../hooks/useAuth";
 const Navbar = () => {
   const { user, logout } = useAuth();
 
+  console.log(user);
   const links = (
     <>
       <li>
@@ -63,7 +64,13 @@ const Navbar = () => {
             <div className="dropdown dropdown-end">
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
-                  <img src={user?.photoURL} />
+                  <img
+                    src={
+                      user.photoURL
+                        ? user.photoURL
+                        : "https://cdn-icons-png.flaticon.com/512/6596/6596121.png"
+                    }
+                  />
                 </div>
               </label>
               <ul
@@ -71,7 +78,7 @@ const Navbar = () => {
                 className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
               >
                 <li>
-                  <a className="justify-between">{user?.displayName}</a>
+                  <a className="justify-between">{user?.displayName ? user?.displayName : "User"}</a>
                 </li>
                 <li>
                   <a onClick={logout}>Logout</a>

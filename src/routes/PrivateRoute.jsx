@@ -10,7 +10,7 @@ const PrivateRoute = ({children}) => {
     if (loading) {
         return <span className="loading loading-infinity w-1/4 block mx-auto"></span>;
     }
-    if (user) {
+    if (user?.email) {
         return children;
     }
     return <Navigate to="/login" state={location.pathname}></Navigate>;

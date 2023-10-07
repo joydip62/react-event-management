@@ -2,10 +2,14 @@ import { Link, useNavigate } from "react-router-dom";
 import Social from "../../shared/Social";
 import toast from "react-hot-toast";
 import useAuth from "../../hooks/useAuth";
+import { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
+
   const { createUser } = useAuth();
   const navigate = useNavigate();
+  const [showPass, setShowPass] = useState(false);
 
   const handleCreateUser = e => {
 
@@ -14,17 +18,30 @@ const Register = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    if (password < 6) {
-      return toast.error("Your password must be getter")
+    if (password.length < 6) {
+      toast.error("Your password must be at least 6 characters");
+      return;
+    } else if (!/^(?=.*?[a-z])/.test(password)
+    ) {
+      toast.error("Your password must be at least 1 lowercase");
+      return;
+    } else if (!/(?=.*?[A-Z])/.test(password)) {
+      toast.error("Your password must be at least 1 uppercase");
+      return;
+    } else if (!/(?=.*?[#?!@$%^&*-])/.test(password)) {
+      toast.error("Your password must be at least 1 special character(#?!@$%^&*-)");
+      return;
     }
+
     createUser(email, password)
       .then((result) => {
-        toast.success("You have successfully sign in with google");
+        toast.success("You have successfully Register");
         console.log(result.user);
         navigate("/");
       })
       .catch((error) => {
-        return toast.error(error.message);
+        toast.error(error.message);
+        return;
       });
 
   }
@@ -45,7 +62,7 @@ const Register = () => {
                   name="displayName"
                 />
               </div>
-              
+
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Photo URL</span>
@@ -57,7 +74,7 @@ const Register = () => {
                   name="photo"
                 />
               </div>
-              
+
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -71,17 +88,23 @@ const Register = () => {
                 />
               </div>
 
-              <div className="form-control">
+              <div className="form-control relative">
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
                 <input
-                  type="password"
+                  type={showPass ? "text" : "password"}
                   placeholder="password"
                   className="input input-bordered"
                   name="password"
                   required
                 />
+                <span
+                  className="absolute right-5 top-14"
+                  onClick={() => setShowPass(!showPass)}
+                >
+                  {showPass ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
+                </span>
                 <label className="label">
                   <a href="#" className="label-text-alt link link-hover">
                     Forgot password?
