@@ -7,6 +7,7 @@ const Root = () => {
         <div className="w-3/4 mx-auto">
             <Navbar></Navbar>
             <Outlet></Outlet>
+            
             <Toaster></Toaster>
         </div>
     );
