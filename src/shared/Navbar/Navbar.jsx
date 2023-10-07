@@ -4,21 +4,19 @@ const Navbar = () => {
   const links = (
     <>
       <li>
-        <a>
-          <NavLink to="/">HOME</NavLink>
-        </a>
+        <NavLink to="/">HOME</NavLink>
       </li>
       <li>
-        <a>ABOUT</a>
+        <NavLink to="/about">ABOUT</NavLink>
       </li>
       <li>
         <a>SERVICE</a>
       </li>
       <li>
-        <a>GALLERY</a>
+        <NavLink to="/gallery">GALLERY</NavLink>
       </li>
       <li>
-        <a>CONTACT</a>
+        <NavLink to="/contact">CONTACT</NavLink>
       </li>
     </>
   );
@@ -58,8 +56,8 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end">
-          <button className="btn">
-            <NavLink to='./login'>Login</NavLink>
+          <button className="btn bg-[#F9A51A]">
+            <NavLink to="./login">Login</NavLink>
           </button>
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
