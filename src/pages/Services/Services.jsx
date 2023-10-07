@@ -10,7 +10,7 @@ const Services = () => {
     const services = useLoaderData();
 
   return (
-    <div>
+      <div>
       <div className="mt-10 text-center w-2/3 mx-auto space-y-5">
         <h2 className="text-4xl font-semibold">OUR SERVICES</h2>
         <p>

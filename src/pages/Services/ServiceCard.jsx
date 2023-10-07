@@ -12,7 +12,7 @@ const ServiceCard = (service) => {
           </figure>
           <div className="card-body text-center">
             <h2 className="card-title mx-auto text-2xl">{name}</h2>
-            <p className='font-bold'>{price}$</p>
+            <p className="font-bold">{price}$</p>
             <p>
               {description.length > 200 ? (
                 <p>
