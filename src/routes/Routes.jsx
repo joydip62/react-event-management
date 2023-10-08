@@ -9,11 +9,13 @@ import ServicesDetails from "../pages/Services/ServicesDetails";
 import AboutUs from "../pages/AboutUs/AboutUs";
 import Projects from "../pages/Projects/Projects";
 import Blogs from "../pages/Blogs/Blogs";
+import NotFoundPage from "../pages/Error/NotFoundPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <NotFoundPage></NotFoundPage>,
     children: [
       {
         path: "/",

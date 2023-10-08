@@ -41,12 +41,11 @@ const Home = () => {
                   praesent luptatum zzril delenit augue.
                 </p>
                 <div className=" mt-5 space-x-5">
-                  <Link
-                    to="./contact"
+                  <a 
                     className="btn bg-[#F9A51A] font-semibold md:text-xl"
                   >
                     contact us
-                  </Link>
+                  </a>
                   <Link
                     to="./services"
                     className="btn font-semibold md:text-xl"
