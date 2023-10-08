@@ -1,5 +1,5 @@
 import './aboutUs.css';
-
+import aboutImg from './../../../public/about.jpg';
 const AboutUs = () => {
   return (
     <div className="mt-10">
@@ -8,7 +8,7 @@ const AboutUs = () => {
           <div className="md:flex items-center">
             <div className="md:w-2/4">
               <div className="romana_about_img">
-                <img src="images/about.jpg" alt="" />
+                <img src={aboutImg} alt="" />
               </div>
             </div>
             <div className="md:w-2/4 mt-20 md:mt-0">
@@ -27,7 +27,7 @@ const AboutUs = () => {
                   lotrud lo gdt kjhh.
                 </p>
                 <div className="romana_about_btn">
-                  <button className='btn btn-primary'>read more</button>
+                  <button className="btn btn-primary">read more</button>
                 </div>
               </div>
             </div>

@@ -17,7 +17,7 @@ const Login = () => {
       userLogIn(email, password)
         // eslint-disable-next-line no-unused-vars
         .then((result) => {
-          toast.success("You have successfully sign in with google");
+          toast.success("You have successfully sign in");
           navigate(location?.state ? location.state : "/");
         })
         .catch((error) => {

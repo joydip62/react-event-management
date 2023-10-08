@@ -1,8 +1,18 @@
-# React + Vite
+# A Corporate Event
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is an assignment project. This website provide a corporate event. User can join the event. 
 
-Currently, two official plugins are available:
+Project features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+##
+
+- When click the services "Join now" button redirect to the Services details page if the user already login.
+- If user are not login then redirect to login page.
+- When user try to registration with the register form there are check the email and password. If email already register there are show a toaster message.
+- For registration user need to give at least 6 characters, a capital letter, a special character. If one are missing then show a toaster message.
+- When user want to login the website, if user enter wrong email or password then show a toaster message.
+- In the navbar there are extra two route. Those pages are using private route. If user login the website then user see those pages.
+
+##
+Live link
+[]()

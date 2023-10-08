@@ -1,4 +1,4 @@
-import logo from "./../../../public/images/logo.png";
+import logo from "./../../../public/logo.png";
 const Footer = () => {
   return (
     <div className="bg-[#2222]">
