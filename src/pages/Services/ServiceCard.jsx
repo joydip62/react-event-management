@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 
 import { Link } from 'react-router-dom';
 
-const ServiceCard = (service) => {
-  const { id, name, image, price, description } = service.service;
+const ServiceCard = ({ service }) => {
+  const { id, name, image, price, description } = service;
   return (
     <div>
       <div data-aos="fade-up">
@@ -18,7 +19,7 @@ const ServiceCard = (service) => {
                 <p>
                   {description.slice(0, 200)}
                   <Link
-                    to={`/service/${id}`}
+                    to={`/services/${id}`}
                     className="text-blue-500 font-bold"
                   >
                     Read More...
@@ -29,7 +30,9 @@ const ServiceCard = (service) => {
               )}
             </p>
             <div className="card-actions justify-center">
-              <button className="btn btn-primary">Join Now</button>
+              <Link to={`/services/${id}`} className="btn btn-primary">
+                Join Now
+              </Link>
             </div>
           </div>
         </div>

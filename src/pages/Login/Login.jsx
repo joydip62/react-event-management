@@ -1,24 +1,24 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import Social from "../../shared/Social";
-import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import Social from "../../shared/Social";
 
 const Login = () => {
 
   const { userLogIn } = useAuth();
   const location = useLocation();
-
   const navigate = useNavigate();
+  
     const handleLogin = (e) => {
       e.preventDefault();
       const email = e.target.email.value;
       const password = e.target.password.value;
 
       userLogIn(email, password)
+        // eslint-disable-next-line no-unused-vars
         .then((result) => {
           toast.success("You have successfully sign in with google");
-          console.log(result.user);
-          navigate(location?.state ? location.pathname : "/");
+          navigate(location?.state ? location.state : "/");
         })
         .catch((error) => {
           return toast.error(error.message);

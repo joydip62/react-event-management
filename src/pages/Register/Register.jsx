@@ -1,14 +1,15 @@
-import { Link, useNavigate } from "react-router-dom";
-import Social from "../../shared/Social";
-import toast from "react-hot-toast";
-import useAuth from "../../hooks/useAuth";
 import { useState } from "react";
+import toast from "react-hot-toast";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import Social from "../../shared/Social";
 
 const Register = () => {
 
   const { createUser } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
   const [showPass, setShowPass] = useState(false);
 
   const handleCreateUser = e => {
@@ -34,10 +35,10 @@ const Register = () => {
     }
 
     createUser(email, password)
+      // eslint-disable-next-line no-unused-vars
       .then((result) => {
         toast.success("You have successfully Register");
-        console.log(result.user);
-        navigate("/");
+        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         toast.error(error.message);

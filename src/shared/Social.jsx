@@ -1,6 +1,6 @@
 
 import google from "./../../public/google.png";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import useAuth from "../hooks/useAuth";
 const Social = () => {
@@ -8,14 +8,15 @@ const Social = () => {
   const navigate = useNavigate();
 
   const { googleLogin } = useAuth();
+  const location = useLocation();
 
   const handleGoogleSignIn = (media) => {
     // eslint-disable-next-line no-unused-vars
     media()
+      // eslint-disable-next-line no-unused-vars
       .then(result => {
       toast.success('You have successfully sign in with google');
-      console.log(result.user);
-      navigate('/');
+      navigate(location?.state ? location.state : "/");
     }).catch(error => {
       return toast.error(error.message);
 })
