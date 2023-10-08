@@ -1,5 +1,10 @@
 import { Link } from 'react-router-dom';
+import AOS from "aos";
 import Services from '../Services/Services';
+import AboutUs from '../AboutUs/AboutUs';
+import ContactUs from '../ContactUs/ContactUs';
+AOS.init();
+
 const Home = () => {
   
   // const services = useLoaderData();
@@ -23,10 +28,10 @@ const Home = () => {
                 opacity: 0.7,
               }}
             >
-              <div className="romana_hero_text text-center text-white w-full lg:w-2/4">
+              <div className="text-center text-white w-full p-5 lg:w-2/4">
                 <h1 className="md:text-3xl">
                   Professional Business
-                  <span className="block md:text-5xl font-extrabold my-5">
+                  <span className="block text-2xl md:text-5xl font-extrabold my-3 md:my-5">
                     Solution & Consulting
                   </span>
                 </h1>
@@ -35,7 +40,7 @@ const Home = () => {
                   sit facilisis at vero er et iusto odio dignissim qui blandit
                   praesent luptatum zzril delenit augue.
                 </p>
-                <div className="romana_slider_btn mt-5 space-x-5">
+                <div className=" mt-5 space-x-5">
                   <Link
                     to="./contact"
                     className="btn bg-[#F9A51A] font-semibold md:text-xl"
@@ -53,7 +58,15 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <Services></Services>
+        <div data-aos="fade-up">
+          <Services></Services>
+        </div>
+        <div data-aos="fade-up">
+          <AboutUs></AboutUs>
+        </div>
+        <div data-aos="fade-up">
+          <ContactUs></ContactUs>
+        </div>
       </div>
     );
 };

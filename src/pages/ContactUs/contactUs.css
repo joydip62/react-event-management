@@ -1,0 +1,13 @@
+.contactUs {
+  background: url("../../../public/request_bg.jpg");
+  margin-top: 92px;
+  padding: 60px;
+}
+
+.contactForm input[type="text"],
+.contactForm select {
+  border: 1px solid #2c9bf2;
+  padding-left: 15px;
+  height: 46px;
+  border-radius: 10px;
+}

@@ -1,0 +1,33 @@
+.romana_about_us_area {
+  position: relative;
+  background: url("../../images/about_bg.jpg");
+  margin-top: -14px;
+  padding: 110px 0px;
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+.romana_about_right_text {
+  margin-top: -59px;
+}
+
+.romana_about_right_text h2 {
+  margin-bottom: 30px;
+}
+.romana_about_right_text h2:after {
+  left: 90%;
+}
+
+.romana_about_btn {
+  margin-top: 34px;
+}
+.romana_about_btn a {
+  border: 1px solid #198ce7;
+  color: #222222;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+.romana_about_btn a:hover {
+  background: #198ce7;
+  border: 1px solid #198ce7;
+  color: #fff;
+}
