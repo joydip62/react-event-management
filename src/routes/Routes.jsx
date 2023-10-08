@@ -7,6 +7,8 @@ import PrivateRoute from "./PrivateRoute";
 import Services from "../pages/Services/Services";
 import ServicesDetails from "../pages/Services/ServicesDetails";
 import AboutUs from "../pages/AboutUs/AboutUs";
+import Projects from "../pages/Projects/Projects";
+import Blogs from "../pages/Blogs/Blogs";
 
 const router = createBrowserRouter([
   {
@@ -27,12 +29,36 @@ const router = createBrowserRouter([
 
       {
         path: "/aboutUs",
-        element: <AboutUs></AboutUs>
+        element: <AboutUs></AboutUs>,
       },
       {
         path: "/services/:id",
-        element: <PrivateRoute><ServicesDetails></ServicesDetails></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <ServicesDetails></ServicesDetails>
+          </PrivateRoute>
+        ),
       },
+      {
+        path: "/projects",
+        element: (
+          <PrivateRoute>
+            <Projects></Projects>
+          </PrivateRoute>
+        ),
+        loader: () => fetch("/projects.json"),
+      },
+      
+      {
+        path: "/blogs",
+        element: (
+          <PrivateRoute>
+            <Blogs></Blogs>
+          </PrivateRoute>
+        ),
+        loader: () => fetch("/blogs.json"),
+      },
+
 
       {
         path: "/login",
