@@ -1,13 +1,16 @@
 import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import useAuth from "../../hooks/useAuth";
 import Social from "../../shared/Social";
+import { useState } from "react";
 
 const Login = () => {
 
   const { userLogIn } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
+  const [showPass, setShowPass] = useState(false);
   
     const handleLogin = (e) => {
       e.preventDefault();
@@ -44,17 +47,23 @@ const Login = () => {
                     required
                   />
                 </div>
-                <div className="form-control">
+                <div className="form-control relative">
                   <label className="label">
                     <span className="label-text">Password</span>
                   </label>
                   <input
-                    type="password"
+                    type={showPass ? "text" : "password"}
                     placeholder="password"
                     className="input input-bordered"
                     name="password"
                     required
                   />
+                  <span
+                    className="absolute right-5 top-14"
+                    onClick={() => setShowPass(!showPass)}
+                  >
+                    {showPass ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
+                  </span>
                   <label className="label">
                     <a href="#" className="label-text-alt link link-hover">
                       Forgot password?

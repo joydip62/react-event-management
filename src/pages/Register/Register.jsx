@@ -7,7 +7,7 @@ import Social from "../../shared/Social";
 
 const Register = () => {
 
-  const { createUser } = useAuth();
+  const { createUser, handleUpdateProfile } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const [showPass, setShowPass] = useState(false);
@@ -16,6 +16,8 @@ const Register = () => {
 
 
     e.preventDefault();
+    const name = e.target.name.value;
+    const photoUrl = e.target.photoUrl.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
 
@@ -36,9 +38,12 @@ const Register = () => {
 
     createUser(email, password)
       // eslint-disable-next-line no-unused-vars
-      .then((result) => {
-        toast.success("You have successfully Register");
-        navigate(location?.state ? location.state : "/");
+      .then(() => {
+        handleUpdateProfile(name, photoUrl)
+          .then(() => {
+          toast.success("You have successfully Register");
+          navigate(location?.state ? location.state : "/");
+        })
       })
       .catch((error) => {
         toast.error(error.message);
@@ -60,7 +65,7 @@ const Register = () => {
                   type="text"
                   placeholder="Enter you name"
                   className="input input-bordered"
-                  name="displayName"
+                  name="name"
                 />
               </div>
 
@@ -72,7 +77,7 @@ const Register = () => {
                   type="text"
                   placeholder="Enter your photo Url"
                   className="input input-bordered"
-                  name="photo"
+                  name="photoUrl"
                 />
               </div>
 

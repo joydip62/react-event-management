@@ -1,6 +1,6 @@
 # A Corporate Event
 
-This is an assignment project. This website provide a corporate event. User can join the event. 
+This is an assignment project. This website provide a corporate event. User can join the event.
 
 Project features
 
@@ -14,5 +14,6 @@ Project features
 - In the navbar there are extra two route. Those pages are using private route. If user login the website then user see those pages.
 
 ##
+
 Live link
 []()
