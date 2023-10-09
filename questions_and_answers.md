@@ -20,7 +20,8 @@ console.log(greetign);
 
 #### Answer: A
 
-<i>Write your explanation here</i>
+<i>Write your explanation here</i> : 
+
  We have declared greeting but then assigned an empty object to greetign. JavaScript is case-sensitive, so greetign is treated as a different variable from greeting. Then the variable greeting is assigned an empty object
 </p>
 </details>
@@ -45,7 +46,8 @@ sum(1, "2");
 
 #### Answer: C
 
-<i>Write your explanation here</i>
+<i>Write your explanation here</i> : 
+
 The sum function is designed to accept two arguments a and b and return their sum. However, there's a type mismatch when call the sum function because we are trying to add a number (1) to a string ("2"). So, the result of the function call sum(1, "2") will be the string "12"
 </p>
 </details>
@@ -71,7 +73,8 @@ console.log(food);
 
 #### Answer: A
 
-<i>Write your explanation here</i>
+<i>Write your explanation here</i> : 
+
 The food array still contains the same elements as before. favoriteFood property does not affect the original array.
 </p>
 </details>
@@ -96,7 +99,8 @@ console.log(sayHi());
 
 #### Answer: B
 
-<i>Write your explanation here</i>
+<i>Write your explanation here</i> : 
+
 We have a sayHi function that expects a name parameter. When we call sayHi() without passing any argument, the name parameter receives the value undefined. 
 </p>
 </details>
@@ -124,7 +128,8 @@ console.log(count);
 
 #### Answer: C
 
-<i>Write your explanation here</i>
+<i>Write your explanation here</i> : 
+
 Inside the callback function, we check if the num is truthy using the if (num) condition. If num is not equal to 0 we increment the count variable by 1. The code counts the number of elements in the nums array and outputs that count is 3 (1, 2, and 3).
 </p>
 </details>
