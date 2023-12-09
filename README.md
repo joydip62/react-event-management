@@ -14,6 +14,13 @@ Project features
 - In the navbar there are extra two route. Those pages are using private route. If user login the website then user see those pages.
 
 ##
+Technologies are use :
+
+- Tailwind
+- daisyUI
+- ReactJS
+- Firebase
+
 
 Live link
-[https://react-corporate-event-7c0b9.web.app/](https://react-corporate-event-7c0b9.web.app/)
+[A Corporate Event](https://react-corporate-event-7c0b9.web.app/)
